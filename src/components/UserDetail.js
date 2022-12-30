@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom'
 
 
 const UserDetail = () => {
-    
-    const {userId} = useParams();
+  const param =  useParams();
+  const userId = param.userId;
   return (
     <>
     <div>Detial about user {userId} </div>
