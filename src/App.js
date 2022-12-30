@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Navbar from "./components/Navbar";
-
+import TodoRows from "./components/TodoRows";
 export default class App extends Component {
   constructor (props) {
     super(props);
@@ -37,13 +37,9 @@ export default class App extends Component {
   }
 
   todoRows = () =>
-		this.state.todoItems.map((item,i) => (
-      <tr key={i}>
-        <td>{item.action}</td>
-        <td><input type="checkbox" checked={item.done} onClick={() => this.toggleDone(item)} /></td>
-      </tr>
-			
-		));
+		this.state.todoItems.map((item) => (
+      <TodoRows key={item.action} item={item} callback={this.toggleDone} />
+    ));
 
   render = () => (
   <div className="container">
